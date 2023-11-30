@@ -1,6 +1,6 @@
 import View from "./view/view";
 
-export function Home() {
+export function People() {
     return (
         <View />
     )
