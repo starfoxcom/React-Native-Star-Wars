@@ -1,12 +1,12 @@
 import { Text, View } from "react-native";
 
-function HomePage() {
+function PeoplePage() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-
-        <Text>Home Page</Text>
+            
+        <Text>People Page</Text>
         </View>
     )
 }
 
-export default HomePage;
+export default PeoplePage;

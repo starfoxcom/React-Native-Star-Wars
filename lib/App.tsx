@@ -16,7 +16,10 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import Home from './pages/home/home';
+
+import { NavigationContainer } from '@react-navigation/native';
+import {Home} from './pages/home/home';
+import TabNavigator from './features/tab_navigation/tab_navigator';
 
 
 
@@ -29,13 +32,11 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={{
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-      <Home />
-    </SafeAreaView>
+    <NavigationContainer>{
+     
+      <TabNavigator />
+    }
+    </NavigationContainer>
   );
 }
 

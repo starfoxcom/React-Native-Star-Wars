@@ -1,3 +1,3 @@
-import HomePage from "./home_page";
+import View from "./home_page";
 
-export default HomePage;
+export default View;
