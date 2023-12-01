@@ -1,12 +1,15 @@
 import { Text, View } from "react-native";
 
 function HomePage() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+  return (
+    <View
+      
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}
+       >
 
-        <Text>Home Page</Text>
-        </View>
-    )
+      <Text>Home Page</Text>
+    </View>
+  )
 }
 
 export default HomePage;
