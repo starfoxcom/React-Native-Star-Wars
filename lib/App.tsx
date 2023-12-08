@@ -4,35 +4,27 @@
  *
  * @format
  */
-
+import 'react-native-gesture-handler';
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  useColorScheme,
-} from 'react-native';
-
-import {
-  Colors,
-} from 'react-native/Libraries/NewAppScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './features/tab_navigation/tab_navigator';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 
 
 function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
 
   return (
-    <NavigationContainer>{
+    <GestureHandlerRootView style={{flex:1}}>
 
-      <TabNavigator />
-    }
-    </NavigationContainer>
+      <NavigationContainer>
+
+        <TabNavigator />
+
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 

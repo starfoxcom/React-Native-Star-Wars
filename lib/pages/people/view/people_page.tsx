@@ -1,5 +1,6 @@
-import { Text, Image, View } from "react-native";
+import { Text, Image, View, TouchableOpacity } from "react-native";
 import { GridView } from "../components/components";
+import { PeopleStackScreenProps } from "../../../router/router";
 
 // This will be removed when fetching data from the SWAPI
 const mockData = [
@@ -72,18 +73,21 @@ const mockData = [
     age: 20,
     address: 'Ha Noi',
     avatar: 'https://picsum.photos/200/300',
-  
+
   }
 ]
 
-function PeoplePage() {
+function PeoplePage({ navigation }: PeopleStackScreenProps<'PeoplePage'>) {
   return (
-    <View style={{ flex: 1, flexDirection:'row', flexWrap:'wrap' }}>
+    <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap' }}>
       <GridView data={mockData} renderItem={(item) => (
-      <View style={{justifyContent:'center', alignItems:'center'}}>
-        <Image source={{ uri: item.avatar }} style={{ width: 114, height: 115, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
-        <Text>{item.name}</Text>
-      </View>
+        <TouchableOpacity
+          style={{ justifyContent: 'center', alignItems: 'center' }}
+          onPress={() => navigation.navigate('PeopleDetailsPage', { name: item.name, uri: item.avatar })}
+        >
+          <Image source={{ uri: item.avatar }} style={{ width: 114, height: 115, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
+          <Text>{item.name}</Text>
+        </TouchableOpacity>
       )} />
     </View>
   )
