@@ -1,4 +1,4 @@
-import { Text, Image, View, TouchableOpacity } from "react-native";
+import { Text, Image, View, TouchableOpacity, ImageBackground } from "react-native";
 import { PeopleStackScreenProps } from "../../../router/router";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -24,7 +24,9 @@ function PeoplePage({ navigation }: PeopleStackScreenProps<'PeoplePage'>) {
     </View>
   );
 
-  if (isError) return <View><Text>Error: {error.message}</Text></View>;
+  if (isError) return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+    <Text>Error: {error.message}</Text>
+  </View>;
 
   return (
     <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap' }}>
@@ -35,9 +37,15 @@ function PeoplePage({ navigation }: PeopleStackScreenProps<'PeoplePage'>) {
             person: item, uri: `https://starwars-visualguide.com/assets/img/characters/${getUrlId(item.url)}.jpg`
           })}
         >
-          <Image source={{
-            uri: `https://starwars-visualguide.com/assets/img/characters/${getUrlId(item.url)}.jpg`
-          }} style={{ width: 114, height: 110, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
+          <ImageBackground source={
+            { uri: `https://starwars-visualguide.com/assets/img/big-placeholder.jpg` }}
+            imageStyle={{
+              width: 114, height: 110, borderTopLeftRadius: 10, borderTopRightRadius: 10,
+            }} >
+            <Image source={{
+              uri: `https://starwars-visualguide.com/assets/img/characters/${getUrlId(item.url)}.jpg`
+            }} style={{ width: 114, height: 110, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
+          </ImageBackground>
           <Text>{item.name}</Text>
         </TouchableOpacity>
       )} />
