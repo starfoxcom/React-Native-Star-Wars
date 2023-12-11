@@ -2,10 +2,10 @@ export type PeopleModel = {
   count:    number;
   next:     string;
   previous: null;
-  results:  PeopleModelResult[];
+  results:  PeopleResultModel[];
 }
 
-export type PeopleModelResult = {
+export type PeopleResultModel = {
   name:       string;
   height:     string;
   mass:       string;
@@ -13,7 +13,7 @@ export type PeopleModelResult = {
   skin_color: string;
   eye_color:  string;
   birth_year: string;
-  gender:     PeopleModelGender;
+  gender:     PeopleGenderModel;
   homeworld:  string;
   films:      string[];
   species:    string[];
@@ -24,7 +24,7 @@ export type PeopleModelResult = {
   url:        string;
 }
 
-export enum PeopleModelGender {
+export enum PeopleGenderModel {
   Female = "female",
   Male = "male",
   NA = "n/a",

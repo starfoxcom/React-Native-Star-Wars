@@ -5,7 +5,7 @@ export interface GridViewProps<T> {
   renderItem(item:T): JSX.Element;
 }
 
-const GridViewComponent = <T extends any>(props: GridViewProps<T>) => {
+const GridView = <T extends any>(props: GridViewProps<T>) => {
   const {data, renderItem} = props;
   return <View style={styles.container}>
     {data.map((item, index) => {
@@ -37,4 +37,4 @@ item: {
 
 });
 
-export default GridViewComponent;
+export default GridView;

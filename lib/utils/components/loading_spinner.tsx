@@ -1,4 +1,4 @@
-import loadingData from './animations/loadingData.json';
+import loadingData from '../animations/loadingData.json';
 import LottieView from 'lottie-react-native';
 
 export default function LoadingSpinner() {

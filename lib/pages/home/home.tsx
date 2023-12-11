@@ -1,7 +1,3 @@
-import View from "./view/view";
+import HomePage from "./view/home_page";
 
-export function Home() {
-  return (
-    <View />
-  )
-}
+export { HomePage }

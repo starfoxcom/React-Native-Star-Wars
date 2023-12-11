@@ -1,8 +1,3 @@
-import { PeopleStackScreenProps } from "../../router/router";
-import View from "./view/view";
+import PeoplePage from "./view/people_page";
 
-export function People({navigation, route}: PeopleStackScreenProps<'PeoplePage'>) {
-  return (
-    <View navigation={navigation} route={route} />
-  )
-}
+export { PeoplePage }

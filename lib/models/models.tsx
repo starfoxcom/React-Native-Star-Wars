@@ -1,7 +1,12 @@
-import {PeopleModel, PeopleModelGender, PeopleModelResult, } from "./people_model";
+import {PeopleModel, PeopleGenderModel, PeopleResultModel, } from "./people_model";
+import { SpaceshipsModel, SpaceshipsResultModel } from "./spaceships_model";
 
 export type People = PeopleModel;
 
-export type PeopleResult = PeopleModelResult;
+export type PeopleResult = PeopleResultModel;
 
-export type PeopleGender = PeopleModelGender;
+export type PeopleGender = PeopleGenderModel;
+
+export type Spaceships = SpaceshipsModel;
+
+export type SpaceshipsResult = SpaceshipsResultModel;
