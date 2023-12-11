@@ -10,6 +10,15 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './features/tab_navigation/tab_navigator';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 
 
@@ -17,13 +26,12 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 function App(): JSX.Element {
 
   return (
-    <GestureHandlerRootView style={{flex:1}}>
-
-      <NavigationContainer>
-
-        <TabNavigator />
-
-      </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <QueryClientProvider client={queryClient}>
+        <NavigationContainer>
+          <TabNavigator />
+        </NavigationContainer>
+      </QueryClientProvider>
     </GestureHandlerRootView>
   );
 }
