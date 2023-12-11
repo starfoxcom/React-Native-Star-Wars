@@ -7,7 +7,7 @@ import { PeopleResult, SpaceshipsResult } from "../models/models";
 export type RootTabParamList = {
   Home: undefined;
   People: NavigatorScreenParams<PeopleStackParamList>;
-  Spaceships: NavigatorScreenParams<SpaceshipStackParamList>;
+  Spaceships: NavigatorScreenParams<SpaceshipsStackParamList>;
 };
 
 // Here we define the params for each screen in the People tab
@@ -17,8 +17,8 @@ export type PeopleStackParamList = {
 };
 
 // Here we define the params for each screen in the Spaceships tab
-export type SpaceshipStackParamList = {
-  SpaceshipPage: undefined;
+export type SpaceshipsStackParamList = {
+  SpaceshipsPage: undefined;
   SpaceshipDetailsPage: { spaceship: SpaceshipsResult; uri: string };
 };
 
@@ -27,8 +27,8 @@ export type PeopleStackScreenProps<T extends keyof PeopleStackParamList> =
 StackScreenProps<PeopleStackParamList, T>;
 
 // Here we define the props for each screen in the Spaceships tab
-export type SpaceshipStackScreenProps<T extends keyof SpaceshipStackParamList> =
-StackScreenProps<SpaceshipStackParamList, T>;
+export type SpaceshipStackScreenProps<T extends keyof SpaceshipsStackParamList> =
+StackScreenProps<SpaceshipsStackParamList, T>;
 
 // Here we declare the global namespace for react navigation
 declare global {
