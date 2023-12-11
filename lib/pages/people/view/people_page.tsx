@@ -1,11 +1,10 @@
 import { Text, Image, View, TouchableOpacity } from "react-native";
-import { GridView } from "../components/components";
 import { PeopleStackScreenProps } from "../../../router/router";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPeople } from "../../../API/starwars_API";
 import { People, PeopleResult } from "../../../models/models";
-import { LoadingSpinner, getUrlId } from "../../../utils/utils";
+import { GridView, LoadingSpinner, getUrlId } from "../../../utils/utils";
 
 
 function PeoplePage({ navigation }: PeopleStackScreenProps<'PeoplePage'>) {

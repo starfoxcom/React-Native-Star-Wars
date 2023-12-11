@@ -1,4 +1,4 @@
-import getUrlId from "./get_url_id";
-import LoadingSpinner from "./loading_spinner";
+import getUrlId from "./functions/get_url_id";
+import { GridView, LoadingSpinner } from "./components/components";
 
-export { getUrlId, LoadingSpinner };
+export { getUrlId, LoadingSpinner, GridView };
