@@ -1,5 +1,4 @@
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { HomePage } from '../../pages/home/home';
 import { PeoplePage } from '../../pages/people/people';
 import { PeopleDetailsPage } from '../../pages/people_details/people_details';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -41,7 +40,6 @@ const PlanetsNavigatorScreen = () => (
 const TabNavigator = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomePage} />
       <Tab.Screen name="People" component={PeopleNavigatorScreen} />
       <Tab.Screen name="Spaceships" component={SpaceshipNavigatorScreen} />
       <Tab.Screen name="Planets" component={PlanetsNavigatorScreen} />

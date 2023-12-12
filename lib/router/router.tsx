@@ -1,11 +1,9 @@
-import { CompositeScreenProps,NavigatorScreenParams } from "@react-navigation/native";
-import type { MaterialBottomTabScreenProps } from '@react-navigation/material-bottom-tabs';
+import { NavigatorScreenParams } from "@react-navigation/native";
 import { StackScreenProps } from "@react-navigation/stack";
 import { PeopleResult, PlanetsResult, SpaceshipsResult } from "../models/models";
 
 // Here we define the params for each tab screen
 export type RootTabParamList = {
-  Home: undefined;
   People: NavigatorScreenParams<PeopleStackParamList>;
   Spaceships: NavigatorScreenParams<SpaceshipsStackParamList>;
   Planets: NavigatorScreenParams<PlanetsStackParamList>;

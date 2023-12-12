@@ -19,7 +19,6 @@ const GridView = <T extends any>(props: GridViewProps<T>) => {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
