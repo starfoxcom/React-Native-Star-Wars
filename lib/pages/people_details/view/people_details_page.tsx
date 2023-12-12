@@ -6,7 +6,6 @@ function PeopleDetailsPage({ route }: PeopleStackScreenProps<'PeopleDetailsPage'
   const { person, uri } = route.params;
   return (
     <ScrollView>
-
       <View style={{ justifyContent: 'center', alignItems: 'center' }} >
         <Text style={styles.title}>{person.name}</Text>
         <View style={styles.shadow}>
@@ -21,8 +20,6 @@ function PeopleDetailsPage({ route }: PeopleStackScreenProps<'PeopleDetailsPage'
         <Text style={styles.text}>Gender: {person.gender}</Text>
         <Text style={styles.text}>Hair Color: {person.hair_color}</Text>
         <Text style={styles.text}>Skin Color: {person.skin_color}</Text>
-
-
       </View>
     </ScrollView>
   )

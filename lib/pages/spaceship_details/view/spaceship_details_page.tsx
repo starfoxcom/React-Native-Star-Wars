@@ -7,7 +7,6 @@ function SpaceshipDetailsPage({ route }: SpaceshipStackScreenProps<'SpaceshipDet
   return (
     <ScrollView>
       <View style={{ justifyContent: 'center', alignItems: 'center' }} >
-
         <Text style={styles.title}>{spaceship.name}</Text>
         <View style={styles.shadow}>
           <ImageBackground source={
@@ -26,8 +25,6 @@ function SpaceshipDetailsPage({ route }: SpaceshipStackScreenProps<'SpaceshipDet
         <Text style={styles.text}>Cargo Capacity: {spaceship.cargo_capacity}</Text>
         <Text style={styles.text}>Minimum Crew: {spaceship.crew}</Text>
         <Text style={styles.text}>Passengers: {spaceship.passengers}</Text>
-
-
       </View>
     </ScrollView>
   )
