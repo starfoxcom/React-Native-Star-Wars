@@ -1,25 +1,24 @@
 import { Text, Image, View, TouchableOpacity, ImageBackground } from "react-native";
-import { SpaceshipStackScreenProps } from "../../../router/router";
+import { PlanetStackScreenProps } from "../../../router/router";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchSpaceships } from "../../../API/starwars_API";
-import { Spaceships, SpaceshipsResult } from "../../../models/models";
+import { fetchPeople, fetchPlanets } from "../../../API/starwars_API";
+import { Planets, PlanetsResult } from "../../../models/models";
 import { GridView, LoadingSpinner, getUrlId } from "../../../utils/utils";
 
 
-function SpaceshipsPage({ navigation }: SpaceshipStackScreenProps<'SpaceshipsPage'>) {
+function PlanetsPage({ navigation }: PlanetStackScreenProps<'PlanetsPage'>) {
 
   const [page, setPage] = useState(1);
 
-  const { isPending, isError, data, error } = useQuery<Spaceships>({
-    queryKey: ['spaceships', page],
-    queryFn: () => fetchSpaceships(page),
+  const { isPending, isError, data, error } = useQuery<Planets>({
+    queryKey: ['planets', page],
+    queryFn: () => fetchPlanets(page),
   });
 
-  const spaceships: SpaceshipsResult[] = data?.results || [];
+  const people: PlanetsResult[] = data?.results || [];
 
   if (isPending) return (
-
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
       <LoadingSpinner />
     </View>
@@ -31,11 +30,11 @@ function SpaceshipsPage({ navigation }: SpaceshipStackScreenProps<'SpaceshipsPag
 
   return (
     <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap' }}>
-      <GridView data={spaceships} renderItem={(item) => (
+      <GridView data={people} renderItem={(item) => (
         <TouchableOpacity
           style={{ justifyContent: 'center', alignItems: 'center' }}
-          onPress={() => navigation.navigate('SpaceshipDetailsPage', {
-            spaceship: item, uri: `https://starwars-visualguide.com/assets/img/starships/${getUrlId(item.url)}.jpg`
+          onPress={() => navigation.navigate('PlanetDetailsPage', {
+            planet: item, uri: `https://starwars-visualguide.com/assets/img/planets/${getUrlId(item.url)}.jpg`
           })}
         >
           <ImageBackground source={
@@ -43,11 +42,9 @@ function SpaceshipsPage({ navigation }: SpaceshipStackScreenProps<'SpaceshipsPag
             imageStyle={{
               width: 114, height: 110, borderTopLeftRadius: 10, borderTopRightRadius: 10,
             }} >
-            <Image source={[{
-              uri: `https://starwars-visualguide.com/assets/img/starships/${getUrlId(item.url)}.jpg`
-            }]} style={{
-              width: 114, height: 110, borderTopLeftRadius: 10, borderTopRightRadius: 10,
-            }} />
+            <Image source={{
+              uri: `https://starwars-visualguide.com/assets/img/planets/${getUrlId(item.url)}.jpg`
+            }} style={{ width: 114, height: 110, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
           </ImageBackground>
           <Text>{item.name}</Text>
         </TouchableOpacity>
@@ -56,4 +53,4 @@ function SpaceshipsPage({ navigation }: SpaceshipStackScreenProps<'SpaceshipsPag
   )
 }
 
-export default SpaceshipsPage;
+export default PlanetsPage;

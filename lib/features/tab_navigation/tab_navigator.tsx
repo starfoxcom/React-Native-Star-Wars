@@ -3,15 +3,19 @@ import { HomePage } from '../../pages/home/home';
 import { PeoplePage } from '../../pages/people/people';
 import { PeopleDetailsPage } from '../../pages/people_details/people_details';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { PeopleStackParamList, RootTabParamList, SpaceshipsStackParamList } from '../../router/router';
+import { PeopleStackParamList, PlanetsStackParamList, RootTabParamList, SpaceshipsStackParamList } from '../../router/router';
 import { SpaceshipsPage } from '../../pages/spaceships/spaceships';
 import { SpaceshipDetailsPage } from '../../pages/spaceship_details/spaceship_details';
+import { PlanetsPage } from '../../pages/planets/planets';
+import { PlanetDetailsPage } from '../../pages/planet_details/planet_details';
 
 const Tab = createMaterialBottomTabNavigator<RootTabParamList>();
 
 const PeopleStackNavigator = createNativeStackNavigator<PeopleStackParamList>();
 
 const SpaceshipStackNavigator = createNativeStackNavigator<SpaceshipsStackParamList>();
+
+const PlanetsStackNavigator = createNativeStackNavigator<PlanetsStackParamList>();
 
 const PeopleNavigatorScreen = () => (
   <PeopleStackNavigator.Navigator>
@@ -27,12 +31,20 @@ const SpaceshipNavigatorScreen = () => (
   </SpaceshipStackNavigator.Navigator>
 );
 
+const PlanetsNavigatorScreen = () => (
+  <PlanetsStackNavigator.Navigator>
+    <PlanetsStackNavigator.Screen options={{title: 'Planets', headerShown: false}} name="PlanetsPage" component={PlanetsPage} />
+    <PlanetsStackNavigator.Screen options={{title: 'Planet Details'}} name="PlanetDetailsPage" component={PlanetDetailsPage} initialParams={{planet: undefined, uri: ''}} />
+  </PlanetsStackNavigator.Navigator>
+);
+
 const TabNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen name="Home" component={HomePage} />
       <Tab.Screen name="People" component={PeopleNavigatorScreen} />
       <Tab.Screen name="Spaceships" component={SpaceshipNavigatorScreen} />
+      <Tab.Screen name="Planets" component={PlanetsNavigatorScreen} />
     </Tab.Navigator>
   );
 }
