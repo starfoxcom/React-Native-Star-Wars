@@ -41,7 +41,6 @@ function SpaceshipsPage({ navigation }: SpaceshipStackScreenProps<'SpaceshipsPag
             imageStyle={{
               width: 114, height: 110, borderTopLeftRadius: 10, borderTopRightRadius: 10,
             }} >
-
             <Image source={[{
               uri: `https://starwars-visualguide.com/assets/img/starships/${getUrlId(item.url)}.jpg`
             }]} style={{
