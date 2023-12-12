@@ -18,10 +18,12 @@ function SpaceshipsPage({ navigation }: SpaceshipStackScreenProps<'SpaceshipsPag
 
   const spaceships: SpaceshipsResult[] = data?.results || [];
 
-  if (isPending) return
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
-    <LoadingSpinner />
-  </View>;
+  if (isPending) return (
+
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
+      <LoadingSpinner />
+    </View>
+  );
 
   if (isError) return <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', }}>
     <Text>Error: {error.message}</Text>
